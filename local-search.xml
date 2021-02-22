@@ -4,6 +4,19 @@
   
   
   <entry>
+    <title>模块加载机制</title>
+    <link href="/2021/02/22/%E6%A8%A1%E5%9D%97%E5%8A%A0%E8%BD%BD%E6%9C%BA%E5%88%B6/"/>
+    <url>/2021/02/22/%E6%A8%A1%E5%9D%97%E5%8A%A0%E8%BD%BD%E6%9C%BA%E5%88%B6/</url>
+    
+    <content type="html"><![CDATA[<h5 id="模块加载机制"><a href="#模块加载机制" class="headerlink" title="模块加载机制"></a>模块加载机制</h5><h6 id="模块优先从缓存中进行加载"><a href="#模块优先从缓存中进行加载" class="headerlink" title="模块优先从缓存中进行加载"></a>模块优先从缓存中进行加载</h6><p>模块在第一次被加载后会被缓存，不论是内置核心模块、用户自定义模块还是第三方模块，</p><p>都有对应的缓存策略以提高加载效率</p><h6 id="1-内置模块加载机制"><a href="#1-内置模块加载机制" class="headerlink" title="1.内置模块加载机制"></a>1.内置模块加载机制</h6><p> require()总是会优先加载核心模块，即使有同名文件</p><h6 id="2-定义模块加载机制"><a href="#2-定义模块加载机制" class="headerlink" title="2.定义模块加载机制"></a>2.定义模块加载机制</h6><p>(1)必须以/，./或../开头，否则会被默认为是核心模块</p><p>(2)如果按确切的文件名没有找到，则Nodejs会尝试带上js、json或.node拓展名再加载</p><p>(3)目录加载顺序为:先寻找packagejson文件，并寻找main属性作为require的入口;若上述找不到，</p><p>Nodejs会试图加载目录下index.js或index.node文件</p><h6 id="3-第三方模块加载机制"><a href="#3-第三方模块加载机制" class="headerlink" title="3.第三方模块加载机制"></a>3.第三方模块加载机制</h6><p>如果传递给require()的模块标识符不是一个核心模块，也没有以、”或!”开头， 那么 Nodejs会从当前模块的父目录开始，尝试从它的/node_modules 目录里加载模块。如果还是没有找到，则移动到再上一层父目录，直到文件系统的根目录</p>]]></content>
+    
+    
+    
+  </entry>
+  
+  
+  
+  <entry>
     <title>npm命令</title>
     <link href="/2021/02/22/npm%E7%9B%B8%E5%85%B3%E5%91%BD%E4%BB%A4/"/>
     <url>/2021/02/22/npm%E7%9B%B8%E5%85%B3%E5%91%BD%E4%BB%A4/</url>

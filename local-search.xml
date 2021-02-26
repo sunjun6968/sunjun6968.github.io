@@ -4,6 +4,19 @@
   
   
   <entry>
+    <title>session与jwT认证</title>
+    <link href="/2021/02/26/session%E4%B8%8EjwT%E8%AE%A4%E8%AF%81/"/>
+    <url>/2021/02/26/session%E4%B8%8EjwT%E8%AE%A4%E8%AF%81/</url>
+    
+    <content type="html"><![CDATA[<h3 id="session与jwT认证"><a href="#session与jwT认证" class="headerlink" title="session与jwT认证"></a>session与jwT认证</h3><h4 id="session认证-服务端渲染"><a href="#session认证-服务端渲染" class="headerlink" title="session认证(服务端渲染)"></a>session认证(服务端渲染)</h4><p>[需要与 cookie绑定关系]</p><h5 id="1-cookie"><a href="#1-cookie" class="headerlink" title="1.cookie"></a>1.cookie</h5><h6 id="cookie介绍"><a href="#cookie介绍" class="headerlink" title="cookie介绍"></a>cookie介绍</h6><p>用于存储在用户浏览器一段不超过4kb的字符串</p><h6 id="cookie作用"><a href="#cookie作用" class="headerlink" title="cookie作用"></a>cookie作用</h6><p>不同域名下的cookie信息是独立的,每当客户端发送请求时, 会自动把当前域名下所有未过期的 Cookie</p><p>  添加到请求头, 一同发送到服务器</p><h6 id="cookie特性"><a href="#cookie特性" class="headerlink" title="cookie特性:"></a>cookie特性:</h6><p>   (1) 自动发送</p><p>   (2) 域名独立</p><p>   (3) 过期时限</p><p>   (4) 4 KB限制</p><h6 id="cookie工作机制"><a href="#cookie工作机制" class="headerlink" title="cookie工作机制:"></a>cookie工作机制:</h6><p>客户端(浏览器)第一次发送请求到服务器, 服务器会以响应头的形式向浏览器写入 Cookie 保存, 之后浏览器</p><p> 每次发送请求到服务器都会自动将 Cookie 以请求头的形式发送过去</p><h6 id="cooki缺点"><a href="#cooki缺点" class="headerlink" title="cooki缺点:"></a>cooki缺点:</h6><p>信息容易被窃取和伪造</p><h6 id="解决方法"><a href="#解决方法" class="headerlink" title="解决方法"></a>解决方法</h6><p>使用 Session 方案, 用户的状态信息在服务器生成和存储, 浏览器只负责保留一个 sessionID 秘钥, 每次发送请求</p><p> 时携带这个 sessionID 到服务器, 服务器根据这个唯一的 id 值查询对应的用户信息进行返回</p><h5 id="2-session"><a href="#2-session" class="headerlink" title="2.session"></a>2.session</h5><h6 id="1-局限性"><a href="#1-局限性" class="headerlink" title="(1)局限性"></a>(1)局限性</h6><p>需要借助 cookie 手段存放在浏览器, 当涉及到前端跨域请求后端接口的时候, 需要做额外的配置,</p><p> 才能实现 Session 的认证</p><h6 id="2-缺点"><a href="#2-缺点" class="headerlink" title="(2).缺点"></a>(2).缺点</h6><p>当前端跨域请求后端接口时, 推荐使用 JWT 这种认证方式, 没有和 Cookie 的绑定关系</p><h4 id="jwt认证"><a href="#jwt认证" class="headerlink" title="jwt认证"></a>jwt认证</h4><h6 id="1-介绍"><a href="#1-介绍" class="headerlink" title="(1)介绍"></a>(1)介绍</h6><p> 用户信息通过加密签名后 token 字符串的形式, 保存在客户端浏览器中. 服务器通过解密客户端传来的 token 字符串来认证用户的身份</p><h6 id="2-组成部分"><a href="#2-组成部分" class="headerlink" title="(2)组成部分"></a>(2)组成部分</h6><p>  Header: 头部</p><p>  Payload: 有效荷载, 这里存放的是经过加密后的用户信息</p><p>  Signature: 签名</p><h6 id="3-使用方式"><a href="#3-使用方式" class="headerlink" title="(3).使用方式:"></a>(3).使用方式:</h6><p>安装jwt包(jsonwebtoken和express-jwt)</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs node.js">npm  i jsonwebtoken express-jwt<br></code></pre></td></tr></table></figure>]]></content>
+    
+    
+    
+  </entry>
+  
+  
+  
+  <entry>
     <title>SQL语句使用</title>
     <link href="/2021/02/24/SQL%E8%AF%AD%E5%8F%A5/"/>
     <url>/2021/02/24/SQL%E8%AF%AD%E5%8F%A5/</url>
@@ -95,7 +108,7 @@
   
   
   <entry>
-    <title>Hello World</title>
+    <title>你好,阅览者</title>
     <link href="/2021/01/28/hello-world/"/>
     <url>/2021/01/28/hello-world/</url>
     

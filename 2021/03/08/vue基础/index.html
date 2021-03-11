@@ -184,7 +184,7 @@
     
     <span class="post-meta mr-2">
       <i class="iconfont icon-chart"></i>
-      1.3k 字
+      1.7k 字
     </span>
   
 
@@ -194,7 +194,7 @@
       <i class="iconfont icon-clock-fill"></i>
       
       
-      17
+      22
        分钟
     </span>
   
@@ -333,6 +333,42 @@
 <p>updated</p>
 <h6 id="4-消亡阶段"><a href="#4-消亡阶段" class="headerlink" title="(4)消亡阶段"></a>(4)消亡阶段</h6><p>beforeDestroy</p>
 <p>destroyed</p>
+<h3 id="三-vue第三天"><a href="#三-vue第三天" class="headerlink" title="三.vue第三天"></a>三.vue第三天</h3><h4 id="1-组件的定义与注册"><a href="#1-组件的定义与注册" class="headerlink" title="1.组件的定义与注册"></a>1.组件的定义与注册</h4><h6 id="1-定义"><a href="#1-定义" class="headerlink" title="(1).定义"></a>(1).定义</h6><p>组件即是标签</p>
+<h6 id="2-组件注册"><a href="#2-组件注册" class="headerlink" title="(2)组件注册"></a>(2)组件注册</h6><p>①全局注册</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs js">Vue.component(<span class="hljs-string">&#x27;组件名&#x27;</span>,&#123; 配置选项 &#125;)<br></code></pre></td></tr></table></figure>
+<p>②局部注册</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><code class="hljs js">componets:&#123;<br>   组件名<span class="hljs-number">1</span>:&#123; 配置选项 &#125;,<br>   组件名<span class="hljs-number">2</span>:&#123; 配置选项 &#125;<br>&#125;<br></code></pre></td></tr></table></figure>
+<p>③注意点:</p>
+<p>命名:</p>
+<p>不能全部大写</p>
+<p>驼峰命名需要变成中划线</p>
+<p>尽量不要使用单标签</p>
+<p>语义化</p>
+<h6 id="3-组件的配置选项"><a href="#3-组件的配置选项" class="headerlink" title="(3)组件的配置选项"></a>(3)组件的配置选项</h6><p>①data</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="hljs js"><span class="hljs-function"><span class="hljs-title">data</span>(<span class="hljs-params"></span>)</span>&#123;<br>   <span class="hljs-keyword">return</span> &#123;  &#125;<br>&#125;<br></code></pre></td></tr></table></figure>
+<p>只有data是一个函数且返回要给对象，每个组件的数据才会是相互独立的</p>
+<p>②template</p>
+<p>html字符串</p>
+<p>选择匹配template的内容作为模板</p>
+<p>模板只能有一个根标签</p>
+<p>③其他和vue实例一模一样</p>
+<h4 id="2组件通信"><a href="#2组件通信" class="headerlink" title="2组件通信"></a>2组件通信</h4><h6 id="1-父子通信"><a href="#1-父子通信" class="headerlink" title="(1)父子通信"></a>(1)父子通信</h6><p>①props使用</p>
+<p>子组件</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs js">props:[<span class="hljs-string">&#x27;属性名1&#x27;</span>,<span class="hljs-string">&#x27;属性名2&#x27;</span>]<br></code></pre></td></tr></table></figure>
+<p>父组件</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs js">&lt;组件 属性名<span class="hljs-number">1</span>=<span class="hljs-string">&quot;数据&quot;</span>  :属性名<span class="hljs-number">2</span>=<span class="hljs-string">&quot;变量&quot;</span> /&gt;<br></code></pre></td></tr></table></figure>
+<figure class="highlight handlebars"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs handlebars"><span class="xml">3、子组件  </span><span class="hljs-template-variable">&#123;&#123; <span class="hljs-name">属性名1</span> &#125;&#125;</span><span class="xml">   </span><span class="hljs-template-variable">&#123;&#123; <span class="hljs-name">属性名2</span> &#125;&#125;</span><br></code></pre></td></tr></table></figure>
+<p>②prors验证</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><code class="hljs js">props:&#123;<br>  属性名<span class="hljs-number">1</span>:<span class="hljs-built_in">String</span>,<br>  属性名<span class="hljs-number">2</span>:[<span class="hljs-built_in">String</span>,Numner,<span class="hljs-built_in">Boolean</span>],<br>  属性名<span class="hljs-number">3</span>:&#123;<br>     type:<span class="hljs-built_in">String</span>,<br>      type:[<span class="hljs-built_in">String</span>,<span class="hljs-built_in">Number</span>],<br>      required:<span class="hljs-literal">true</span>/<span class="hljs-literal">false</span>,<br>      <span class="hljs-keyword">default</span>:<span class="hljs-string">&quot;默认值&quot;</span>,<br>      <span class="hljs-function"><span class="hljs-title">default</span>(<span class="hljs-params"></span>)</span>&#123;  <span class="hljs-comment">// 类型为引用数据类型</span><br>          <span class="hljs-keyword">return</span> 对象/数组<br>      &#125;，<br>     <span class="hljs-function"><span class="hljs-title">validate</span>(<span class="hljs-params">val</span>)</span>&#123; <span class="hljs-comment">// 自定义校验函数，true表示通过，false不通过</span><br>         <span class="hljs-keyword">return</span> <span class="hljs-literal">true</span>/<span class="hljs-literal">false</span>  <br>      &#125;<br>  &#125;<br>&#125;<br></code></pre></td></tr></table></figure>
+<p>③单项数据流</p>
+<p>数据流自上而下！ 不允许修改props！ 【给props里面的属性赋值】</p>
+<h6 id="2-子父通信"><a href="#2-子父通信" class="headerlink" title="(2)子父通信"></a>(2)子父通信</h6><p>自定义事件$emit</p>
+<p>①子组件</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs js">$emit(<span class="hljs-string">&#x27;自定义事件&#x27;</span>,实参)<br></code></pre></td></tr></table></figure>
+<p>②父组件</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs js">&lt;组件 @自定义事件=<span class="hljs-string">&quot;父的事件函数&quot;</span> /&gt;<br></code></pre></td></tr></table></figure>
+<p>③</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><code class="hljs js"><span class="hljs-number">3</span>、父组件  <br>methods:&#123;<br>   父的事件函数(形参)&#123;<br>      ...<br>  &#125;    <br>&#125;<br></code></pre></td></tr></table></figure>
 
             </div>
             <hr>
